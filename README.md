@@ -44,3 +44,11 @@ script
                                     |__ 
                                         Finalizing changes and running.
 ```
+# Functionalities
+## Documentation
+`Entry(compareStatement: SDKCompareStatement, Value: SDKWildCard)`
+
+Attempts to compare a statement.
+```c
+entry(if compare, return);
+```
