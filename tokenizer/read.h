@@ -9,6 +9,24 @@
 #include "types.h"
 #include "attrib.h"
 #include "../state/cur.h"
+class Function {
+private:
+    std::string contents;
+public:
+    explicit Function(const std::string& content) {
+        contents = content;
+    }
+    std::string getParameters() {
+        return contents.substr(contents.find('(')+1, contents.find(')');
+    }
+    void switchContent(const std::string& newcontent) {
+        contents = newcontent;
+    }
+    std::string getName() {
+        return contents.substr(0, contents.find('('));
+    }
+};
+const std::vector<std::string>charDefaults{};
 /**
  * Returns a Corrected SDK DataType Holding Statement Return Information.
  * @param code
@@ -83,6 +101,7 @@ bool isCallbackMethod(const std::string& snippet) {
         }
     }
 }
+
 /**
  * Checks if the snippet given is a function (1), And Is an official SDK Function (2).
  * @param snippet
@@ -92,5 +111,47 @@ bool isActualFunction(const std::string& snippet) {
     if (snippet.find('(') != std::string::npos) {
         std::cout << "Function is not a valid function. Nor Is it a SDK.Func to begin with.\n";
     }
+    else {
+        const std::string funcname = snippet.substr(0 , snippet.find('('));
+        if (funcname == "assrt") {
+            return true;
+        }
+        else if (funcname == "memst") return true;
+        else if (funcname == "doc") return true;
+        else return false;
+    }
+}
+void EvaluateFunctions(const std::string& snippet) {
+    if (snippet.find('(') != std::string::npos) {
+        std::cout << "Function is not a valid function. Nor Is it a SDK.Func to begin with.\n";
+    }
+    else {
+        const std::string funcname = snippet.substr(0 , snippet.find('('));
+        if (funcname == "assrt") {
+
+        }
+        else if (funcname == "memst") return true;
+        else if (funcname == "doc") return true;
+        else return false;
+    }
+}
+/**
+ * Runs the <script>.
+ * @param script
+ */
+void run(const std::string& script) {
+    /**
+     * Checks if the script has a `main` Entry point.
+     * Usually defined as .call main(), In the standard.
+     */
+     if (script.substr(0, '(') == ".call main") {
+         // Now we write our code
+         const std::string statement = script.substr(script.find('{')+1, script.find('}'));
+
+         while (true) {
+             EvaluateFunctions(statement);
+             break;
+         }
+     }
 }
 #endif //SDK_L_READ_H
