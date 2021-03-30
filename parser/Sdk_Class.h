@@ -1,3 +1,5 @@
+#include <vector>
+
 /* Array. */
 template<typename T>
 class Sdk_Class {

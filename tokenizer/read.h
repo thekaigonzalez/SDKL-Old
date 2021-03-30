@@ -11,8 +11,10 @@
 #include "attrib.h"
 #include "../state/cur.h"
 #include "../parser/SDK_Postype.h"
+#include "../parser/write.h"
+#include "../parser/spaceremove.h"
 
-class Function {
+class __MINGW_ATTRIB_DEPRECATED Function {
 private:
     std::string contents;
 public:
@@ -107,6 +109,11 @@ bool isCallbackMethod(const std::string& snippet) {
             return true;
         }
     }
+
+    /**
+     * Runtime Errors.
+     */
+    return false;
 }
 
 /**
@@ -136,9 +143,12 @@ void EvaluateFunctions(const std::string& snippet) {
         std::string statement = snippet.substr(0, snippet.find(';'));
 // If the EOL Is unavailable.
         if (snippet.find(';') == std::string::npos) return;
-        while (statement == snippet.substr(0, snippet.find(';'))) {
-            std::string function = statement.substr(0, statement.find('('));
-            std::string functionbody = statement.substr(statement.find('(')+1, statement.find(')')-1);
+        while (statement == snippet.substr(snippet.find(';'))) {
+            unsigned functionpos = statement.find('(');
+            unsigned functionbodybeginpos = statement.find('(')+1;
+            unsigned functionbodypos = statement.find(')');
+            std::string function = statement.substr(0, functionpos);
+            std::string functionbody = statement.substr(functionbodybeginpos, functionbodypos);
             if (function == "hello") {
                 std::cout << "world! Body: " << functionbody;
 
@@ -188,6 +198,7 @@ void run(const std::string& script) {
      else
          return false;
  }
+
  /**
   * Skips the entry points and returns the value specified in the PosType POSITION
   * @code
@@ -203,8 +214,43 @@ void run(const std::string& script) {
   * @param Position : SDKPositionType
   * @return SDKPositionType ||
   */
-std::string skipEntryPoints(const std::string& code, SDK_Postype & Position) {
+std::string skipEntryPoints(const std::string& code, SDK_Postype  Position) {
+    std::string entry;
+    std::string main;
+    std::string statements;
+    // checks if the given entry is a callback method.
+     unsigned first = code.find('.');
+     unsigned last = code.find(' ');
 
- }
+    entry = code.substr(first, last);
+    if (entry == ".call") {
+        // checks if it's the main() branch.
+        unsigned firstx = code.find(' ');
+        unsigned lastx = code.find('(');
+        main = code.substr(firstx, lastx-firstx);
+        ridOfSpaces(main);
 
+        if (main == "main") {
+
+            // gets the statements
+            unsigned firstxf = code.find('{');
+            unsigned lastxf = code.find('}');
+            statements = code.substr(firstxf, lastxf);
+        }
+
+    }
+    if (Position == MAIN)
+        return main;
+    if (Position == BODY)
+        return statements;
+    if (Position == ENTRY)
+        return entry;
+    else
+        return "NONE";
+}
+std::string getTrueParameters(const std::string& code) {
+    unsigned firstx = code.find('(')+1;
+    unsigned lastx = code.find(')');
+    return code.substr(firstx, lastx-firstx);
+}
 #endif //SDK_L_READ_H

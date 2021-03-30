@@ -4,7 +4,7 @@
 
 #ifndef SDK_L_WILDCARD_H
 #define SDK_L_WILDCARD_H
-#include "../parser/Sdk_Class.h"
+
 #include "../parser/Sdk_State.h"
 template<typename T>
 class SDK_wildcard {
