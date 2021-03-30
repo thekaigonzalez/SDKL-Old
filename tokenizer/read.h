@@ -5,10 +5,13 @@
 #define SDK_L_READ_H
 
 #include <cstring>
+#include <algorithm>
 #include "../parser/wildcard.h"
 #include "types.h"
 #include "attrib.h"
 #include "../state/cur.h"
+#include "../parser/SDK_Postype.h"
+
 class Function {
 private:
     std::string contents;
@@ -17,7 +20,10 @@ public:
         contents = content;
     }
     std::string getParameters() {
-        return contents.substr(contents.find('(')+1, contents.find(')');
+        std::string contentsa  = contents.substr(0, ' ');
+        std::string T = contentsa.substr(contentsa.find('(')+1, contentsa.find('|'));
+        T.erase(std::remove(T.begin(), T.end(), ')'), T.end());
+        return T;
     }
     void switchContent(const std::string& newcontent) {
         contents = newcontent;
@@ -26,7 +32,7 @@ public:
         return contents.substr(0, contents.find('('));
     }
 };
-const std::vector<std::string>charDefaults{};
+std::vector<std::string>charDefaults{};
 /**
  * Returns a Corrected SDK DataType Holding Statement Return Information.
  * @param code
@@ -44,14 +50,15 @@ SDK_Type eval(const std::string& code) {
     /**
      * IF the statment hasn't ended
      */
-    if (code.find(';') != std::string::npos)
+    if (code.find(';') == std::string::npos)
         std::cout << "Unexpected EOF When parsing. Expected ';' as EOS.\n";
     /**
      * If there's no callback methods
      * @see SDK.CallbackMethod<typename>
      */
-    if (code.find('.') != std::string::npos)
+    if (code.find('.') == std::string::npos)
         std::cout << "WARNING: No callback methods implemented. Nothing can be called.\n";
+    return current_ReturnType;
 }
 // This Part returns certain parts of a Statement using different tokens.
 
@@ -122,17 +129,27 @@ bool isActualFunction(const std::string& snippet) {
     }
 }
 void EvaluateFunctions(const std::string& snippet) {
-    if (snippet.find('(') != std::string::npos) {
-        std::cout << "Function is not a valid function. Nor Is it a SDK.Func to begin with.\n";
+    if (snippet.find('(') == std::string::npos) {
+        std::cout << "\nFunction is not a valid function. Nor Is it a SDK.Func to begin with.\n";
     }
     else {
-        const std::string funcname = snippet.substr(0 , snippet.find('('));
-        if (funcname == "assrt") {
+        std::string statement = snippet.substr(0, snippet.find(';'));
+// If the EOL Is unavailable.
+        if (snippet.find(';') == std::string::npos) return;
+        while (statement == snippet.substr(0, snippet.find(';'))) {
+            std::string function = statement.substr(0, statement.find('('));
+            std::string functionbody = statement.substr(statement.find('(')+1, statement.find(')')-1);
+            if (function == "hello") {
+                std::cout << "world! Body: " << functionbody;
+
+            }
+            else if (function == "end") {
+                break;
+            }
+            statement = snippet.substr(0, snippet.find(';'));
+
 
         }
-        else if (funcname == "memst") return true;
-        else if (funcname == "doc") return true;
-        else return false;
     }
 }
 /**
@@ -154,4 +171,40 @@ void run(const std::string& script) {
          }
      }
 }
+
+/**
+ * Allow NULL Keyword Checking
+ * Returns true if the keyword returns a NULL Value / Has zero bytes associated.
+ *
+ * @code
+ *
+ * IsNullValue("null") -> true
+ *
+ * IsNullValue("egg") -> false
+ */
+ bool IsNullValue(const std::string& DWORD) {
+     if (DWORD.substr(0, ' ') == "null" || DWORD.substr(0, ' ')== "nil")
+         return true;
+     else
+         return false;
+ }
+ /**
+  * Skips the entry points and returns the value specified in the PosType POSITION
+  * @code
+  * string = [
+  * .call main() {
+  *     assrt(5);
+  * }
+  * ]
+  * skipEntryPoints(string, SDK_Postype::BODY) -> assrt(5);
+  * skipEntryPoints(string, SDK_Postype::MAIN) -> main();
+  * @endcode
+  * @param code : string
+  * @param Position : SDKPositionType
+  * @return SDKPositionType ||
+  */
+std::string skipEntryPoints(const std::string& code, SDK_Postype & Position) {
+
+ }
+
 #endif //SDK_L_READ_H
