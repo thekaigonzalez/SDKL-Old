@@ -5,11 +5,5 @@
 #include "pdef.h"
 #include "regex.h"
 #include "Sdk_State.h"
-
-
-Sdk_Class<Sdk_State<int>>MyarrayClass{};
-
-
-int main() {
-    MyarrayClass.get(0).returnValue();
-}
+#include "wildcard.h"
+#include "../state/dom.h"
