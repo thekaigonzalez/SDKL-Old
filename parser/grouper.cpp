@@ -7,3 +7,7 @@
 #include "Sdk_State.h"
 #include "wildcard.h"
 #include "../state/dom.h"
+#include "spaceremove.h"
+int main() {
+
+}

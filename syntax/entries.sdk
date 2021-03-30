@@ -1,0 +1,4 @@
+.call main() {
+    entry(if compare, return);
+    entry(if not compare, return);
+}
