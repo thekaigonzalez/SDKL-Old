@@ -217,6 +217,8 @@ void run(const std::string& script) {
 std::string skipEntryPoints(const std::string& code, SDK_Postype  Position) {
     std::string entry;
     std::string main;
+    std::string winMainParams;
+    std::string lXMain;
     std::string statements;
     // checks if the given entry is a callback method.
      unsigned first = code.find('.');
@@ -239,15 +241,41 @@ std::string skipEntryPoints(const std::string& code, SDK_Postype  Position) {
         }
 
     }
+    else if (entry == "win") {
+        // checks if it's the main() branch.
+        unsigned firstx = code.find(' ');
+        unsigned lastx = code.find('(');
+        unsigned et = code.find('(');
+        unsigned etx = code.find(')');
+
+        main = code.substr(firstx, lastx-firstx);
+        ridOfSpaces(main);
+        if (main == "wdls") {
+
+            // gets the statements
+            unsigned firstxf = code.find('{');
+            unsigned lastxf = code.find('}');
+            statements = code.substr(firstxf, lastxf);
+        }
+
+    }
     if (Position == MAIN)
         return main;
     if (Position == BODY)
         return statements;
     if (Position == ENTRY)
         return entry;
+    if (Position == WINMAINPARAMS)
+        return winMainParams;
     else
         return "NONE";
 }
+/**
+ * Returns the true parameters of first instance of SDK.Function().
+ *
+ * @param code
+ * @return
+ */
 std::string getTrueParameters(const std::string& code) {
     unsigned firstx = code.find('(')+1;
     unsigned lastx = code.find(')');
