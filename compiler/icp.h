@@ -27,7 +27,8 @@ SDK_CALLBACK_DECL compile(const std::string& code) {
      * Else, Continue.
      */
     else {
+        std::string body = mycompiler->skipEntryPoints(code, ENTRY);
 
-     }
+    }
 }
 #endif //SDK_L_ICP_H
