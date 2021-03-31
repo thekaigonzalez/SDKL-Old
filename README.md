@@ -48,7 +48,57 @@ script
 ## Documentation
 `Entry(compareStatement: SDKCompareStatement, Value: SDKWildCard)`
 
-Attempts to compare a statement.
+(UPDATED)
+Calls a method and returns if it's able to be
+an entry waypoint.
 ```c
-entry(if compare, return);
+entry(.call, return);
 ```
+# EntryPoints
+
+An **Entry Point** As defined in READ.h, Is a point
+that defines a way for your program to communicate
+with the Windows / Linux APIs.
+## Windows
+```
+>>[[
+    Entry Point Examples for windows
+]]
+
+>>[[
+    Interface With the Windows api
+]]
+>> The System's default call.
+win wtdl(string command) {
+    assrt(command);
+}
+
+>> If the system runs `cls`, It fires this function.
+msvc oncls() {
+    assrt(3)
+}
+
+```
+## Linux
+```
+>>[[
+    Entry Examples For Linux / Ubuntu Systems.
+]]
+
+nix* main() {
+    bash.run('printf "hello\n"');
+}
+```
+# License
+This project is licensed under multiple different
+licenses.
+
+## The SCC
+The SDK-L Compiler Collection is licensed under
+the GNU General Public License.
+## SDK-LP
+The SDK Parser is licensed under the MIT License.
+## SPM
+SDK Package Manager is licensed under the Apache 2.0 License
+## Other
+Most of SDK Is licensed under the MIT License.
