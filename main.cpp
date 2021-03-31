@@ -10,7 +10,7 @@ int main() {
     std::string resource;
 
     while (getline(file, resource)) {
-        buffer += resource + "\n";
+        buffer += resource;
     };
     std::cout << "Buffeval = " << buffer << ", Evaluating All entries\n";
         std::string body = skipEntryPoints(buffer, BODY);
