@@ -12,7 +12,15 @@ enum SDK_Postype {
     IDEFCLASS,
     ENTRY,
     GATEWAYENTRY,
-    MAIN
+    MAIN,
+    WINAPI,
+    WINMAIN,
+    WINDLL,
+    WDSL,
+    LXMAIN,
+    LXBASH,
+    LXRETURN,
+    WINMAINPARAMS
 };
 
 
