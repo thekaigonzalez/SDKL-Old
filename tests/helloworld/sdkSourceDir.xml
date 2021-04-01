@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!---
+
+SDK Project Template
+<https://www.github.com/Kai-Builder/SDKProjectTemplate/>
+
+Enjoy!
+
+-->
+
+
+
+<project>
+    <!-- Sets GNU Source Directory -->
+    <if>
+        <set type="COMPILER-DIR">C:\MinGW\bin\g++.exe</set>
+    </if>
+    <!-- Sets Visual C++ Source Directory. Helps Backend VC++ Scripts run.
+     % = None / Use Default
+     -->
+    <if>
+        <set type="VC++_DIR">
+            %
+        </set>
+    </if>
+    <!--
+
+        Allows the Build file to download local dependencies from git.
+
+    -->
+    <dependencies />
+    <!--
+
+    Runs a Build Configuration script.
+
+    -->
+    <script type="build-config">
+        buildout.cfg
+    </script>
+    <!--
+
+    This Part Checks if our "Dependencies" are installed.
+
+    -->
+    <dependenciescheck on="true"/>
+
+    <sourcedir>
+        src
+    </sourcedir>
+
+    <index>main.sdk</index>
+
+    <localeversion>1.0</localeversion>
+    <run>echo hello!</run>
+    <if>
+        <set type="SYSTEM-COMMAND">
+            echo Hello! Using this app makes me happy!
+        </set>
+    </if>
+</project>
