@@ -11,19 +11,13 @@ Enjoy!
 
 
 
-<project>
+<project name="helloWorldAPP">
+
     <!-- Sets GNU Source Directory -->
     <if>
         <set type="COMPILER-DIR">C:\MinGW\bin\g++.exe</set>
     </if>
-    <!-- Sets Visual C++ Source Directory. Helps Backend VC++ Scripts run.
-     % = None / Use Default
-     -->
-    <if>
-        <set type="VC++_DIR">
-            %
-        </set>
-    </if>
+
     <!--
 
         Allows the Build file to download local dependencies from git.
@@ -58,4 +52,17 @@ Enjoy!
             echo Hello! Using this app makes me happy!
         </set>
     </if>
+    <!--
+        REQUIRED!
+
+        Runs the SDK.exe Binary with the file.
+
+        If it is incorrect, Returns -1. Requires a valid binary to be present.
+
+       Download them here <https://www.github.com/Kai-Builder/SDK-L/>
+
+        This allows functionalities to be passed by version.
+        Also allows for the SDK Code Check to be valid with valid functions.
+    -->
+    <set-compiler-dir>C:\sdk.exe</set-compiler-dir>
 </project>
