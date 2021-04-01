@@ -102,3 +102,83 @@ The SDK Parser is licensed under the MIT License.
 SDK Package Manager is licensed under the Apache 2.0 License
 ## Other
 Most of SDK Is licensed under the MIT License.
+# SDK Project Management File
+The SDKPMF Is a file usually with the name,
+`sdkSourceDir.xml`, It is parsed by the SDK
+Project manager. It sets the C++ Output directory,
+The Node.js Directories, Dependencies, ETC.
+
+Using this file creates a tool.json.
+
+here's an example of how yours should look.
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!---
+
+SDK Project Template
+<https://www.github.com/Kai-Builder/SDKProjectTemplate/>
+
+Enjoy!
+
+-->
+
+
+
+<project name="helloWorldAPP">
+
+    <!-- Sets GNU Source Directory -->
+    <if>
+        <set type="COMPILER-DIR">C:\MinGW\bin\g++.exe</set>
+    </if>
+
+    <!--
+
+        Allows the Build file to download local dependencies from git.
+
+    -->
+    <dependencies />
+    <!--
+
+    Runs a Build Configuration script.
+
+    -->
+    <script type="build-config">
+        buildout.cfg
+    </script>
+    <!--
+
+    This Part Checks if our "Dependencies" are installed.
+
+    -->
+    <dependenciescheck on="true"/>
+
+    <sourcedir>
+        src
+    </sourcedir>
+
+    <index>main.sdk</index>
+
+    <localeversion>1.0</localeversion>
+    <run>echo hello!</run>
+    <if>
+        <set type="SYSTEM-COMMAND">
+            echo Hello! Using this app makes me happy!
+        </set>
+    </if>
+    <!--
+        REQUIRED!
+
+        Runs the SDK.exe Binary with the file.
+
+        If it is incorrect, Returns -1. Requires a valid binary to be present.
+
+       Download them here <https://www.github.com/Kai-Builder/SDK-L/>
+
+        This allows functionalities to be passed by version.
+        Also allows for the SDK Code Check to be valid with valid functions.
+    -->
+    <set-compiler-dir>C:\sdk.exe</set-compiler-dir>
+</project>
+
+```
