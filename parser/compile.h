@@ -5,9 +5,10 @@
 
 #ifndef SDK_L_COMPILE_H
 #define SDK_L_COMPILE_H
-
+#include <typeinfo>
 #include <vector>
 #include "../parser/parse.h"
+#include "../tokenizer/types.h"
 template<typename T>
 class BaseCompilerProfile {
 public:
@@ -26,7 +27,7 @@ public:
         if (keyword == ".call" || keyword == "vless") current_ReturnType = VOIDLESS;
         if (keyword == "null" || keyword == "nil") current_ReturnType = SDK_Type::NULLPOINTER;
         /**
-         * IF the statment hasn't ended
+         * IF the statement hasn't ended
          */
         if (code.find(';') == std::string::npos)
             std::cout << "Unexpected EOF When parsing. Expected ';' as EOS.\n";
@@ -270,6 +271,9 @@ namespace SDKL {
         std::vector<C> *NewList{};
         SDK_CALLBACK_DECL decl;
         SDK_CALLBACK_DECL cmnt;
+        SDK_CALLBACK_DECL nullptrt;
+        SDK_CALLBACK_DECL fullptr;
+
     public:
         C type;
 
@@ -294,12 +298,7 @@ namespace SDKL {
         }
 
         SDK_CALLBACK_DECL null() {
-            return -1;
-
-        }
-
-        int fullptr() {
-            return -3;
+            return nullptrt;
         }
 
 
