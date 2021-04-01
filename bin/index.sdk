@@ -1,0 +1,5 @@
+.call main() {
+    .println(hey);
+    .println(This is SDK :|);
+    .fwd(This is the time!)
+}

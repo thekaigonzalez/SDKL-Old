@@ -1,0 +1,7 @@
+.call main(string argv) {
+    .println('hello, World!');
+    >> After printing to STDOUT, Allocate characters for optimal performance.
+    >> This step isn't required.
+    .assrt(12);
+    return();
+}

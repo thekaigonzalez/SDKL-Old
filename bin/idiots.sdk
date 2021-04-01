@@ -1,0 +1,4 @@
+.call main(string argv) {
+    entry(if compare, return);
+    entry(if not compare, return);
+}
