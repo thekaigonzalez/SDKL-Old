@@ -9,8 +9,9 @@
 
 
 
-
+#include <iostream>
 int main()
 {
-    compile("code()");
+
+
 }
