@@ -1,12 +1,12 @@
 # cmake_minimum_required(VERSION <specify CMake version here>)
 project(SDK_L C CXX)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 20)
 
 
 
 
-set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static")
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static -std=c++0x")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "../bin")
 ###################################################
 #
@@ -66,3 +66,14 @@ add_executable(sdkl standards/1.0/1.0.cpp)
 ####################################################
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY   "../bin")
+
+#####################################################
+#
+#
+#           VERSION CHECKING HANDLERS
+#
+#
+#####################################################
+
+
+add_executable(sdkv driver/dev.cpp)
