@@ -1,0 +1,6 @@
+>>this program Returns current times
+
+.call main() {
+
+    .fwd(current time is)
+}
