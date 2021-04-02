@@ -12,7 +12,8 @@ int main()
     std::string macro;
     std::string def = "hello";
     Strings.add(macro, def);
-    // Should return "hello"
+    
     Strings.remove(0);
+    // Prints garbage. Be careful!
     std::cout << Strings.size() << " Strings values " << Strings.findOf(macro);
 }
