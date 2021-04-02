@@ -1,5 +1,6 @@
-#include <rapidxml_utils.hpp>
+
 #include "../structinfo/support.h"
+#include <rapidxml/rapidxml_utils.hpp>
 
 #include <string>
 #include <iostream>
