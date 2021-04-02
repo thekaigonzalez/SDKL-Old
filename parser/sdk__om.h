@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-
 namespace sdk {
     /**
      * A Basic Ordered Map.
@@ -96,7 +95,7 @@ namespace sdk {
             return vec_ptr.size();
        }
        int indexOf() {
-
+			return 1;
        }
        int size() {
             return vec_ptr.size();
