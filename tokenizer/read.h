@@ -6,6 +6,7 @@
 
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "../parser/wildcard.h"
 #include "types.h"
 #include "attrib.h"
@@ -14,7 +15,7 @@
 #include "../parser/write.h"
 #include "../parser/spaceremove.h"
 
-class __MINGW_ATTRIB_DEPRECATED Function {
+class Function {
 private:
     std::string contents;
 public:
@@ -235,9 +236,9 @@ std::string skipEntryPoints(const std::string& code, SDK_Postype  Position) {
         if (main == "main") {
 
             // gets the statements
-            unsigned firstxf = code.find('{');
+            unsigned firstxf = code.find('{')+1;
             unsigned lastxf = code.find('}');
-            statements = code.substr(firstxf, lastxf);
+            statements = code.substr(firstxf, lastxf-firstxf);
         }
 
     }
@@ -250,12 +251,12 @@ std::string skipEntryPoints(const std::string& code, SDK_Postype  Position) {
 
         main = code.substr(firstx, lastx-firstx);
         ridOfSpaces(main);
-        if (main == "wdls") {
+        if (main == "main") {
 
             // gets the statements
-            unsigned firstxf = code.find('{');
+            unsigned firstxf = code.find('{')+1;
             unsigned lastxf = code.find('}');
-            statements = code.substr(firstxf, lastxf);
+            statements = code.substr(firstxf, firstxf-lastxf );
         }
 
     }
@@ -280,5 +281,48 @@ std::string getTrueParameters(const std::string& code) {
     unsigned firstx = code.find('(')+1;
     unsigned lastx = code.find(')');
     return code.substr(firstx, lastx-firstx);
+}
+/**
+ * Evaluates a standard function. Core Modules aren't in standards.
+ * @breif Standards implement their own modules,
+ */
+void evaluateTrueFunctionalities( std::string code) {
+    unsigned name = code.find('(');
+    unsigned param1 = code.find('(')+1;
+    unsigned param2 = code.find(')');
+
+    std::string function = code.substr(0, name);
+
+std::string parameters = code.substr(param1, param2-param1);
+
+
+    ridOfSpaces(function);
+    if (function == ".println") {
+        std::cout << parameters << std::endl;
+    }
+    else if (function == ".fwd") {
+        std::cout << parameters << ":" << __TIME__ << std::endl;
+    }
+}
+/*
+std::string split implementation by using delimeter as an another string
+*/
+std::vector<std::string> split(std::string stringToBeSplitted, std::string delimeter)
+{
+    std::vector<std::string> splittedString;
+    int startIndex = 0;
+    int  endIndex = 0;
+    while( (endIndex = stringToBeSplitted.find(delimeter, startIndex)) < stringToBeSplitted.size() )
+    {
+        std::string val = stringToBeSplitted.substr(startIndex, endIndex - startIndex);
+        splittedString.push_back(val);
+        startIndex = endIndex + delimeter.size();
+    }
+    if(startIndex < stringToBeSplitted.size())
+    {
+        std::string val = stringToBeSplitted.substr(startIndex);
+        splittedString.push_back(val);
+    }
+    return splittedString;
 }
 #endif //SDK_L_READ_H
