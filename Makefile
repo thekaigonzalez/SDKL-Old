@@ -150,6 +150,19 @@ maintestone/fast:
 .PHONY : maintestone/fast
 
 #=============================================================================
+# Target rules for targets named sdki
+
+# Build rule for target.
+sdki: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sdki
+.PHONY : sdki
+
+# fast build rule for target.
+sdki/fast:
+	$(MAKE) -f CMakeFiles/sdki.dir/build.make CMakeFiles/sdki.dir/build
+.PHONY : sdki/fast
+
+#=============================================================================
 # Target rules for targets named spm
 
 # Build rule for target.
@@ -294,6 +307,33 @@ driver/dev.s: driver/dev.cpp.s
 driver/dev.cpp.s:
 	$(MAKE) -f CMakeFiles/sdkv.dir/build.make CMakeFiles/sdkv.dir/driver/dev.cpp.s
 .PHONY : driver/dev.cpp.s
+
+driver/mx.o: driver/mx.cpp.o
+
+.PHONY : driver/mx.o
+
+# target to build an object file
+driver/mx.cpp.o:
+	$(MAKE) -f CMakeFiles/sdki.dir/build.make CMakeFiles/sdki.dir/driver/mx.cpp.o
+.PHONY : driver/mx.cpp.o
+
+driver/mx.i: driver/mx.cpp.i
+
+.PHONY : driver/mx.i
+
+# target to preprocess a source file
+driver/mx.cpp.i:
+	$(MAKE) -f CMakeFiles/sdki.dir/build.make CMakeFiles/sdki.dir/driver/mx.cpp.i
+.PHONY : driver/mx.cpp.i
+
+driver/mx.s: driver/mx.cpp.s
+
+.PHONY : driver/mx.s
+
+# target to generate assembly for a file
+driver/mx.cpp.s:
+	$(MAKE) -f CMakeFiles/sdki.dir/build.make CMakeFiles/sdki.dir/driver/mx.cpp.s
+.PHONY : driver/mx.cpp.s
 
 main.o: main.cpp.o
 
@@ -441,6 +481,7 @@ help:
 	@echo "... sdkl"
 	@echo "... rebuild_cache"
 	@echo "... maintestone"
+	@echo "... sdki"
 	@echo "... spm"
 	@echo "... sdkp"
 	@echo "... sdkg"
@@ -455,6 +496,9 @@ help:
 	@echo "... driver/dev.o"
 	@echo "... driver/dev.i"
 	@echo "... driver/dev.s"
+	@echo "... driver/mx.o"
+	@echo "... driver/mx.i"
+	@echo "... driver/mx.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
