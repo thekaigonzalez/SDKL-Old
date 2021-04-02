@@ -17,7 +17,7 @@ public:
      * @return
      */
     const char* evaluate() {
-
+		return "Y";
     }
 };
 #endif //SDK_L_CUR_H
