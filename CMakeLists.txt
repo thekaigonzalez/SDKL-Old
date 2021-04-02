@@ -1,12 +1,12 @@
-# cmake_minimum_required(VERSION <specify CMake version here>)
-project(SDK_L C CXX)
 
+cmake_minimum_required(VERSION 3.16)
+project(SDK_L C CXX)
+include(FindPkgConfig)
+pkg_check_modules(CURLPP REQUIRED curlpp)
 set(CMAKE_CXX_STANDARD 20)
 
 
-
-
-set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static -std=c++0x")
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static -std=c++0x -lcurlpp -lcurl")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "../bin")
 ###################################################
 #
@@ -19,6 +19,8 @@ add_executable(sdko main.cpp)
 add_executable(sdkg parser/grouper.cpp)
 add_executable(spm misc/spm.cxx)
 add_executable(scc compiler/compiler.cpp)
+add_executable(sdki driver/mx.cpp)
+add_executable(fbswk driver/filename_base.cpp)
 
 
 #################################################
