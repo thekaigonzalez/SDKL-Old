@@ -1,4 +1,4 @@
-# Install script for directory: usr/SDK-L
+# Install script for directory: /mnt/c/Users/seymo/Desktop/SDK-L
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
