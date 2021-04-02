@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="SDK_L"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/mnt/c/Users/seymo/Desktop/SDK-L"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/mnt/c/Users/seymo/Desktop/SDK-L"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sdkv">
+				<Option output="/mnt/c/Users/seymo/Desktop/bin/sdkv" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="../bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 sdkv"/>
+					<CompileFile command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sdkv/fast">
+				<Option output="/mnt/c/Users/seymo/Desktop/bin/sdkv" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="../bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 sdkv/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sdkl">
+				<Option output="/mnt/c/Users/seymo/Desktop/bin/sdkl" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="../bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 sdkl"/>
+					<CompileFile command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sdkl/fast">
+				<Option output="/mnt/c/Users/seymo/Desktop/bin/sdkl" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="../bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 sdkl/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/mnt/c/Users/seymo/Desktop/SDK-L"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="maintestone">
+				<Option output="/mnt/c/Users/seymo/Desktop/bin/maintestone" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="../bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 maintestone"/>
+					<CompileFile command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="maintestone/fast">
+				<Option output="/mnt/c/Users/seymo/Desktop/bin/maintestone" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="../bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 maintestone/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="spm">
+				<Option output="/mnt/c/Users/seymo/Desktop/bin/spm" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="../bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 spm"/>
+					<CompileFile command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="spm/fast">
+				<Option output="/mnt/c/Users/seymo/Desktop/bin/spm" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="../bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 spm/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sdkp">
+				<Option output="/mnt/c/Users/seymo/Desktop/bin/sdkp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="../bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 sdkp"/>
+					<CompileFile command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sdkp/fast">
+				<Option output="/mnt/c/Users/seymo/Desktop/bin/sdkp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="../bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 sdkp/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sdkg">
+				<Option output="/mnt/c/Users/seymo/Desktop/bin/sdkg" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="../bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 sdkg"/>
+					<CompileFile command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sdkg/fast">
+				<Option output="/mnt/c/Users/seymo/Desktop/bin/sdkg" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="../bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 sdkg/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="scc">
+				<Option output="/mnt/c/Users/seymo/Desktop/bin/scc" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="../bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 scc"/>
+					<CompileFile command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="scc/fast">
+				<Option output="/mnt/c/Users/seymo/Desktop/bin/scc" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="../bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 scc/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sdko">
+				<Option output="/mnt/c/Users/seymo/Desktop/bin/sdko" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="../bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 sdko"/>
+					<CompileFile command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sdko/fast">
+				<Option output="/mnt/c/Users/seymo/Desktop/bin/sdko" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="../bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 sdko/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/mnt/c/Users/seymo/Desktop/SDK-L/api/tests/ordered_map.cpp">
+			<Option target="maintestone"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/seymo/Desktop/SDK-L/compiler/compiler.cpp">
+			<Option target="scc"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/seymo/Desktop/SDK-L/driver/dev.cpp">
+			<Option target="sdkv"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/seymo/Desktop/SDK-L/main.cpp">
+			<Option target="sdko"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/seymo/Desktop/SDK-L/misc/spm.cxx">
+			<Option target="spm"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/seymo/Desktop/SDK-L/parser/grouper.cpp">
+			<Option target="sdkg"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/seymo/Desktop/SDK-L/projects/sdkproj-run.cpp">
+			<Option target="sdkp"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/seymo/Desktop/SDK-L/standards/1.0/1.0.cpp">
+			<Option target="sdkl"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/seymo/Desktop/SDK-L/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
