@@ -121,6 +121,34 @@
 					<DistClean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="sdki">
+				<Option output="/mnt/c/Users/seymo/Desktop/bin/sdki" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="../bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 sdki"/>
+					<CompileFile command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sdki/fast">
+				<Option output="/mnt/c/Users/seymo/Desktop/bin/sdki" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="../bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 sdki/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/mnt/c/Users/seymo/Desktop/SDK-L/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="spm">
 				<Option output="/mnt/c/Users/seymo/Desktop/bin/spm" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="../bin"/>
@@ -270,6 +298,9 @@
 		</Unit>
 		<Unit filename="/mnt/c/Users/seymo/Desktop/SDK-L/driver/dev.cpp">
 			<Option target="sdkv"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/seymo/Desktop/SDK-L/driver/mx.cpp">
+			<Option target="sdki"/>
 		</Unit>
 		<Unit filename="/mnt/c/Users/seymo/Desktop/SDK-L/main.cpp">
 			<Option target="sdko"/>
