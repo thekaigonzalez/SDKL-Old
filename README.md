@@ -182,3 +182,8 @@ Enjoy!
 </project>
 
 ```
+
+
+-----------------
+This project is the work of 50+ hours. I hope you
+find some sort of use out of it.
