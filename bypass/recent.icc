@@ -1,0 +1,32 @@
+//
+// Created by seymo on 4/2/2021.
+//
+#include <memory>
+#include <cstdio>
+#ifndef _RECENT_ICC_
+#define _RECENT_ICC_
+
+
+
+
+
+
+struct BUFFER
+{
+   static void ret();
+};
+
+
+
+
+namespace pn {
+	//T
+}
+
+
+
+
+
+
+
+#endif //_RECENT_ICC_
