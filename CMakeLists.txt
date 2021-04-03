@@ -79,3 +79,15 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY   "../bin")
 
 
 add_executable(sdkv driver/dev.cpp)
+
+####################################################
+#
+#
+#   ASSERT SCRIPT VALIDATORS
+#
+#
+####################################################
+
+
+add_executable(mshift bypass/shift.cc)
+add_executable(msj bypass/recent.cxx)
