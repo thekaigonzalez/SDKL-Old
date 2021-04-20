@@ -1,8 +1,8 @@
 
 cmake_minimum_required(VERSION 3.16)
 project(SDK_L C CXX)
-include(FindPkgConfig)
-pkg_check_modules(CURLPP REQUIRED curlpp)
+
+
 set(CMAKE_CXX_STANDARD 20)
 
 
