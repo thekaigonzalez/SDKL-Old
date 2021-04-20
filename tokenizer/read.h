@@ -14,7 +14,7 @@
 #include "../parser/SDK_Postype.h"
 #include "../parser/write.h"
 #include "../parser/spaceremove.h"
-
+#include <sstream>
 class Function {
 private:
     std::string contents;
@@ -324,5 +324,92 @@ std::vector<std::string> split(std::string stringToBeSplitted, std::string delim
         splittedString.push_back(val);
     }
     return splittedString;
+}
+std::stringstream SDKL_STREAM;
+std::stringstream SDKL_SUBFUNCSTREAM;
+void add_tostream(std::string Content)
+{
+    SDKL_STREAM << Content << std::endl;
+}
+void parsestream();
+std::stringstream SDKL_INCLUSIONSTREAM;
+void send_funcstream()
+{
+    std::string function;
+    std::string parameters;
+
+    while (getline(SDKL_SUBFUNCSTREAM, function,'(') && getline(SDKL_SUBFUNCSTREAM, parameters, ')'))
+    {
+
+        if (function == "println")
+        {
+            std::cout << parameters << std::endl;
+        }
+        else if (function == "dump")
+        {
+            char buffer[std::stoi(parameters)];
+            std::cout << buffer << std::endl;
+        }
+        else if (function == "return")
+        {
+            return;
+        }
+        else if (function == "system")
+        {
+            system(parameters.c_str());
+        }
+        else if (function == "passed")
+        {
+
+        }
+        else {
+           std::ifstream include("scripts/" + function + ".sdk");
+           if (!include) {
+               std::cout << "WARN: Function not in interpreter library. Checking for functions from the local script.\n"
+                            "err: scripts\\" << function << ".sdk not found.\n";
+               return;
+           }
+           else {
+               std::string res;
+                while (getline (include, res))
+                {
+                    SDKL_STREAM << res << std::endl;
+                }
+
+           }
+
+
+        }
+    }
+}
+void parsestream()
+{
+    std::string keyword;
+    SDKL_STREAM >> keyword;
+    if (keyword == ".call" || keyword == "void")
+    {
+        std::string funcname;
+        getline(SDKL_STREAM,funcname, '(');
+        funcname.erase(std::remove_if(funcname.begin(), funcname.end(), isspace), funcname.end());
+        std::string funcparams;
+        getline(SDKL_STREAM,funcparams, ')');
+        funcparams.erase(std::remove_if(funcparams.begin(), funcparams.end(), isspace), funcparams.end());
+        std::string statements;
+        std::string statements_op;
+        getline(SDKL_STREAM,statements_op, '{');
+        getline(SDKL_STREAM,statements, '}');
+        statements.erase(std::remove_if(statements.begin(), statements.end(), isspace), statements.end());
+        if (funcname == "main")
+        {
+
+            SDKL_SUBFUNCSTREAM << statements;//send the functions to the function stream.
+            send_funcstream();//execute them
+        }
+        else
+        {
+            SDKL_INCLUSIONSTREAM << funcname;
+
+        }
+    }
 }
 #endif //SDK_L_READ_H
