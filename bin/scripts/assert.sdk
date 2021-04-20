@@ -1,0 +1,7 @@
+>> Calls the main function
+>> Allocates a certain piece of memory and sends it.
+
+>> Don't create an entry point. The compiler & System handles it here.
+.call main()
+{
+}
