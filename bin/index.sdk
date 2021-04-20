@@ -1,3 +1,7 @@
-.call main() {
-    .println(hey);
+void main() {
+
+
+    println("hello, World!")
+    assert()
+
 }
