@@ -271,6 +271,7 @@ std::string skipEntryPoints(const std::string& code, SDK_Postype  Position) {
     else
         return "NONE";
 }
+std::stringstream csdkin;
 /**
  * Returns the true parameters of first instance of SDK.Function().
  *
@@ -326,13 +327,119 @@ std::vector<std::string> split(std::string stringToBeSplitted, std::string delim
     return splittedString;
 }
 std::stringstream SDKL_STREAM;
+std::stringstream SDKL_TEMPSTREAM;
+std::stringstream SDKL_MACHINESTREAM;
 std::stringstream SDKL_SUBFUNCSTREAM;
+std::stringstream SDKL_FUNCTEMPSTREAM;
+std::stringstream SDKL_INCLUSIONSTREAM;
 void add_tostream(std::string Content)
 {
     SDKL_STREAM << Content << std::endl;
 }
+void pexec_preset()
+{
+    std::string keyword;
+    SDKL_TEMPSTREAM >> keyword;
+
+    if (keyword == "EXTENSION")
+    {
+        std::string funcname;
+        getline(SDKL_TEMPSTREAM,funcname, '(');
+        funcname.erase(std::remove_if(funcname.begin(), funcname.end(), isspace), funcname.end());
+        std::string funcparams;
+        getline(SDKL_TEMPSTREAM,funcparams, ')');
+
+        std::string statements;
+        std::string statements_op;
+        getline(SDKL_STREAM,statements_op, '{');
+        getline(SDKL_STREAM,statements, '}');
+        std::cout << "Precaching " << statements << " with funcname:" << funcname;
+        SDKL_FUNCTEMPSTREAM << statements;
+        if (funcname == "init")
+        {
+            std::cout << "INIT\n";
+            std::string function;
+            std::string parameters;
+
+            while (getline(SDKL_TEMPSTREAM, function,'(') && getline(SDKL_TEMPSTREAM, parameters, ')'))
+            {
+                std::cout << function;
+                function.erase(std::remove_if(function.begin(), function.end(), isspace), function.end());
+                if (function == "println")
+                {
+                    std::cout << parameters << std::endl;
+                }
+                else if (function == "dump")
+                {
+                    char buffer[std::stoi(parameters)];
+                    std::cout << buffer << std::endl;
+                }
+                else if (function == "return")
+                {
+                    return;
+                }
+                else if (function == "system")
+                {
+                    system(parameters.c_str());
+                }
+                else if (function == "Print")
+                {
+                    csdkin << parameters;
+                    std::cout <<parameters;
+                }
+                else if (function == "OBLog")
+                {
+                    csdkin << parameters;
+                    std::cout << parameters << std::endl;
+                }
+                else if (function == "resolve")
+                {
+                    if (parameters == "garbage")
+                    {
+                        std::cout << SDKL_STREAM.str() << std::endl;
+                    }
+                    else if (parameters == "pi")
+                    {
+                        std::cout << "3.14" << std::endl;
+                    }
+                    else if (parameters == "csdkout")
+                    {
+                        std::cout << csdkin.str() << std::endl;
+                    }
+                }
+                else {
+                    std::ifstream include("scripts/" + function + ".sdk");
+                    if (!include) {
+                        std::cout << "WARN: Function not in interpreter library. Checking for functions from the local script.\n"
+                                     "err: scripts\\" << function << ".sdk not found.\n";
+                        break;
+                    }
+                    else {
+                        std::string res;
+                        while (getline (include, res))
+                        {
+                            SDKL_TEMPSTREAM << res << std::endl;
+                        }
+
+
+                    }
+
+
+                }
+            }
+            SDKL_TEMPSTREAM.clear();
+
+        }
+        else
+        {
+            SDKL_INCLUSIONSTREAM << funcname;
+
+        }
+    }
+
+}
 void parsestream();
-std::stringstream SDKL_INCLUSIONSTREAM;
+
 void send_funcstream()
 {
     std::string function;
@@ -340,7 +447,7 @@ void send_funcstream()
 
     while (getline(SDKL_SUBFUNCSTREAM, function,'(') && getline(SDKL_SUBFUNCSTREAM, parameters, ')'))
     {
-
+        function.erase(std::remove_if(function.begin(), function.end(), isspace), function.end());
         if (function == "println")
         {
             std::cout << parameters << std::endl;
@@ -352,13 +459,23 @@ void send_funcstream()
         }
         else if (function == "return")
         {
-            return;
+            break;
         }
         else if (function == "system")
         {
             system(parameters.c_str());
         }
-        else if (function == "passed")
+        else if (function == "Print")
+        {
+            csdkin << parameters;
+            if (parameters == "%arg%")
+            {
+
+            }
+            std::cout <<parameters;
+        }
+
+        else if (function == "machine-def")
         {
 
         }
@@ -373,14 +490,16 @@ void send_funcstream()
                std::string res;
                 while (getline (include, res))
                 {
-                    SDKL_STREAM << res << std::endl;
+                    SDKL_TEMPSTREAM << res << std::endl;
                 }
+                pexec_preset();
 
            }
 
 
         }
     }
+
 }
 void parsestream()
 {
@@ -393,17 +512,17 @@ void parsestream()
         funcname.erase(std::remove_if(funcname.begin(), funcname.end(), isspace), funcname.end());
         std::string funcparams;
         getline(SDKL_STREAM,funcparams, ')');
-        funcparams.erase(std::remove_if(funcparams.begin(), funcparams.end(), isspace), funcparams.end());
+
         std::string statements;
         std::string statements_op;
         getline(SDKL_STREAM,statements_op, '{');
         getline(SDKL_STREAM,statements, '}');
-        statements.erase(std::remove_if(statements.begin(), statements.end(), isspace), statements.end());
+
         if (funcname == "main")
         {
-
             SDKL_SUBFUNCSTREAM << statements;//send the functions to the function stream.
             send_funcstream();//execute them
+
         }
         else
         {
