@@ -1,0 +1,4 @@
+
+EXTENSION init(){
+    resolve(garbage)
+}
