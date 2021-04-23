@@ -6,6 +6,7 @@
 #define _FILENAME_BASE_H_
 template<typename T>
 class filename_base {
+private:
 
 };
 
