@@ -125,6 +125,7 @@ bool isCallbackMethod(const std::string& snippet) {
 bool isActualFunction(const std::string& snippet) {
     if (snippet.find('(') != std::string::npos) {
         std::cout << "Function is not a valid function. Nor Is it a SDK.Func to begin with.\n";
+        return false;
     }
     else {
         const std::string funcname = snippet.substr(0 , snippet.find('('));
@@ -135,6 +136,7 @@ bool isActualFunction(const std::string& snippet) {
         else if (funcname == "doc") return true;
         else return false;
     }
+    return false;
 }
 void EvaluateFunctions(const std::string& snippet) {
     if (snippet.find('(') == std::string::npos) {
@@ -162,6 +164,7 @@ void EvaluateFunctions(const std::string& snippet) {
 
         }
     }
+
 }
 /**
  * Runs the <script>.
@@ -499,6 +502,7 @@ void send_funcstream()
 
         }
     }
+    SDKL_SUBFUNCSTREAM.clear();
 
 }
 void parsestream()
@@ -530,5 +534,10 @@ void parsestream()
 
         }
     }
+}
+void eval_function(const std::string& function)
+{
+    SDKL_FUNCTEMPSTREAM << function;
+    send_funcstream();
 }
 #endif //SDK_L_READ_H
