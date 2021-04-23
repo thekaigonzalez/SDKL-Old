@@ -3,6 +3,8 @@
 //
 #include <memory>
 #include <cstdio>
+#include <iostream>
+
 #ifndef _RECENT_ICC_
 #define _RECENT_ICC_
 
@@ -25,7 +27,20 @@ namespace pn {
 
 
 
+#ifndef WINDOWS
 
+void install() {
+    std::cout << "e";
+}
+
+#elif UNIX
+
+void install(std::string url)
+{
+
+}
+
+#endif
 
 
 
