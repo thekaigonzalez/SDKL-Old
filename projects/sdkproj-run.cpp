@@ -1,4 +1,4 @@
-
+#ifdef UNIX
 #include "../structinfo/support.h"
 #include <rapidxml/rapidxml_utils.hpp>
 
@@ -53,8 +53,7 @@ int main(int argc, char **argv) {
                 std::cout
                         << "Failed to gain knowledge about an __SDK_COMPILER!\n\tAt <set-compiler-dir> XML : Requires A Valid Compiler to be present.\n\n";
 
-            }
-            else {
+            } else {
                 std::cout << "-- The SDK Compiler Is present.\n\n";
                 std::cout << "-- Patching Up Build. . . \n\n";
                 std::cout << "-- Done! tool.json Package Configurations have been made.";
@@ -150,3 +149,8 @@ int main(int argc, char **argv) {
         }
     }
 }
+#endif
+
+#ifndef WINDOWS
+#warning Windows Is currently Incompatible with the SDK Project & Tool.json Genenerator.
+#endif
