@@ -6,7 +6,7 @@ project(SDK_L C CXX)
 set(CMAKE_CXX_STANDARD 20)
 
 
-set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static -std=c++0x -lcurlpp -lcurl")
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static -std=c++0x")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "../bin")
 ###################################################
 #
